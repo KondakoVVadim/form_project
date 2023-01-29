@@ -1,0 +1,12 @@
+{% extends 'feedback/base.html' %}
+
+{% block title%} List Feedbacks {%endblock%}
+
+{% block content%}
+<ul class="list">
+    {% for feed in feedbacks%}
+    <h2>Отзыв №{{feed.id}}</h2>
+        <h2>id:{{ feed.pk }}<a href="{% url 'user_id' feed.id %}">{{ feed.name }} {{ feed.surname }}</a> пишет: {{feed.feedback}}, оценил на: {{feed.rating}}</h2>
+    {% endfor %}
+</ul>
+{% endblock %}
